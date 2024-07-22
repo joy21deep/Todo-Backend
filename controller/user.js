@@ -8,6 +8,15 @@ const createUser = async (req, res) => {
   try {
     const { username, email, password, userType } = req.body;
 
+    if (!username || !email || !password || !userType) {
+      return res.status(205).json({ message: 'Missing required fields' });
+    }
+
+    // Check for duplicate email
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(202).json({ message: 'User already exists' });
+    }
     // Create new user
     const newUser = new User({
       username,
@@ -20,7 +29,8 @@ const createUser = async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log("what is the error",error)
+    res.status(401).json({ error: error.message });
   }
 };
 
