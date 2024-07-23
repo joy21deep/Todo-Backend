@@ -20,8 +20,8 @@ module.exports = async (req, res, next) => {
       domainname != "192.168.46.130" &&
       host != "localhost:3008" &&
       host != "192.168.46.130:3005" &&
-      domainname!="https://task-manger-backend-skr2.onrender.com" &&
-      host !="https://task-manger-backend-skr2.onrender.com"
+      domainname!="task-manger-backend-skr2.onrender.com" &&
+      host !="task-manger-backend-skr2.onrender.com"
     ) {
       return res.sendStatus(401);
     } else {
