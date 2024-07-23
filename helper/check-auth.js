@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
     const host = req.headers.host;
     const domainname = req.hostname;
     const token = req.headers.authorization.split(" ")[1];
-    console.log("bhxbhb",token,"gcgfcc",req.headers.authorization,host ,domainname);
+    // console.log("bhxbhb",token,"gcgfcc",req.headers.authorization,host ,domainname);
 
     
     if (token == null) return res.sendStatus(401);
