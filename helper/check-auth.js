@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
     const host = req.headers.host;
     const domainname = req.hostname;
     const token = req.headers.authorization.split(" ")[1];
-    // console.log("bhxbhb",token,"gcgfcc",req.headers.authorization,host ,domainname);
+    console.log("bhxbhb",token,"gcgfcc",req.headers.authorization,host ,domainname);
 
     
     if (token == null) return res.sendStatus(401);
@@ -20,8 +20,8 @@ module.exports = async (req, res, next) => {
       domainname != "192.168.46.130" &&
       host != "localhost:3008" &&
       host != "192.168.46.130:3005" &&
-      domainname!="https://task-manger-backend-skr2.onrender.com" 
-      // host !="https://task-manger-backend-skr2.onrender.com
+      domainname!="https://task-manger-backend-skr2.onrender.com" &&
+      host !="https://task-manger-backend-skr2.onrender.com"
     ) {
       return res.sendStatus(401);
     } else {
